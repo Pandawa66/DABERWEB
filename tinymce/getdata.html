@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+	
+	<script type="text/javascript">
+		tinyMCE.init({
+			selector: "textarea",
+		});
+	</script>
+</head>
+<body>
+	<form id="get-data-form" method="post">
+		<textarea class="tinymce" id="texteditor"></textarea>
+		<input type="submit" value="ambil data"></input>
+	</form>
+
+	<div id="data-container">
+		
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+	$("#get-data-form").submit(function(e){
+		var content = tinymce.get("texteditor").getContent();
+		
+		$("#data-container").html(content);
+
+		return false;
+	});
+});
+	</script>
+</body>
+</html>
